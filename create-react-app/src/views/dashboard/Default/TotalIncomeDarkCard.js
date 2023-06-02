@@ -13,7 +13,6 @@ import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
 
 // styles
 const CardWrapper = styled(MainCard)(({ theme }) => ({
-  backgroundColor: theme.palette.primary.dark,
   color: theme.palette.primary.light,
   overflow: 'hidden',
   position: 'relative',
@@ -41,7 +40,7 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
 
 // ==============================|| DASHBOARD - TOTAL INCOME DARK CARD ||============================== //
 
-const TotalIncomeDarkCard = ({ isLoading }) => {
+const TotalIncomeDarkCard = ({ isLoading, title }) => {
   const theme = useTheme();
 
   return (
@@ -49,7 +48,13 @@ const TotalIncomeDarkCard = ({ isLoading }) => {
       {isLoading ? (
         <TotalIncomeCard />
       ) : (
-        <CardWrapper border={false} content={false}>
+        <CardWrapper
+          border={false}
+          content={false}
+          sx={{
+            backgroundColor: theme.palette.primary[800]
+          }}
+        >
           <Box sx={{ p: 2 }}>
             <List sx={{ py: 0 }}>
               <ListItem alignItems="center" disableGutters sx={{ py: 0 }}>
@@ -79,7 +84,7 @@ const TotalIncomeDarkCard = ({ isLoading }) => {
                   }
                   secondary={
                     <Typography variant="subtitle2" sx={{ color: 'primary.light', mt: 0.25 }}>
-                      Total Income
+                      {title}
                     </Typography>
                   }
                 />
@@ -93,7 +98,8 @@ const TotalIncomeDarkCard = ({ isLoading }) => {
 };
 
 TotalIncomeDarkCard.propTypes = {
-  isLoading: PropTypes.bool
+  isLoading: PropTypes.bool,
+  title: PropTypes.string
 };
 
 export default TotalIncomeDarkCard;

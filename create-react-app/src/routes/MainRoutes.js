@@ -9,6 +9,10 @@ const DashboardDefault = Loadable(lazy(() => import('views/dashboard/Default')))
 
 // utilities routing
 const UtilsTypography = Loadable(lazy(() => import('views/utilities/Typography')));
+const ActiveUser = Loadable(lazy(() => import('views/user/ActiveUser')));
+const InactiveUser = Loadable(lazy(() => import('views/user/InactiveUser')));
+const BlockUser = Loadable(lazy(() => import('views/user/BlockUser')));
+const SearchUser = Loadable(lazy(() => import('views/user/SearchUser')));
 const UtilsColor = Loadable(lazy(() => import('views/utilities/Color')));
 const UtilsShadow = Loadable(lazy(() => import('views/utilities/Shadow')));
 const UtilsMaterialIcons = Loadable(lazy(() => import('views/utilities/MaterialIcons')));
@@ -29,10 +33,26 @@ const MainRoutes = {
     },
     {
       path: 'dashboard',
+      element: <DashboardDefault />
+    },
+    {
+      path: 'user',
       children: [
         {
-          path: 'default',
-          element: <DashboardDefault />
+          path: 'active',
+          element: <ActiveUser />
+        },
+        {
+          path: 'blocked',
+          element: <BlockUser />
+        },
+        {
+          path: 'inactive',
+          element: <InactiveUser />
+        },
+        {
+          path: 'search-user',
+          element: <SearchUser />
         }
       ]
     },

@@ -13,9 +13,45 @@ const icons = {
 
 const utilities = {
   id: 'utilities',
-  title: 'Utilities',
   type: 'group',
   children: [
+    {
+      id: 'user',
+      title: 'User',
+      type: 'collapse',
+      icon: icons.IconWindmill,
+      children: [
+        {
+          id: 'tabler-icons',
+          title: 'Active User List',
+          type: 'item',
+          url: '/user/active',
+          breadcrumbs: false
+        },
+        {
+          id: 'material-icons',
+          title: 'Block User List',
+          type: 'item',
+          url: '/user/blocked',
+          breadcrumbs: false
+        },
+        {
+          id: 'material-icons',
+          title: 'Inative User',
+          type: 'item',
+          url: '/user/inactive',
+          breadcrumbs: false
+        },
+        {
+          id: 'material-icons',
+          title: 'Search User',
+          type: 'item',
+
+          url: '/user/search-user',
+          breadcrumbs: false
+        }
+      ]
+    },
     {
       id: 'util-typography',
       title: 'Typography',
